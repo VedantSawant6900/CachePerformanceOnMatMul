@@ -54,7 +54,7 @@ vector< vector<int> > scatter(vector< vector<int> > A) {
 	for (int i = 0; i < num_samples; ++i) {
         x_indices[i] = rand() % n;
         y_indices[i] = rand() % n; 
-        data_samples[i] = rand() % 100 + 1; 
+        data_samples[i] = rand(); 
     }
 
     for (int i = 0; i < num_samples; ++i) {
