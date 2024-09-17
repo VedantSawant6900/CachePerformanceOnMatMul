@@ -53,12 +53,11 @@ vector< vector<int> > scatter(vector< vector<int> > A) {
     for (int i = 0; i < 1000; i++) {
         int row = rand() % n;   // Random row index
         int col = rand() % n;   // Random column index
-        int value = rand();     // Random value without bounds
+        int value = rand()%100;     // Random value without bounds
 
         // Scatter the random value into the matrix
         A[row][col] = value;
     }
-
     return A;
 }
 
