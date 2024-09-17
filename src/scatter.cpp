@@ -23,27 +23,27 @@ struct Result {
 };
 
 Result read(string filename) {
-    vector< vector<int> > A;
-    Result ab;
-    string line;
-    ifstream infile;
-    infile.open(filename.c_str());
+	vector< vector<int> > A;
+	Result ab;
+	string line;
+	ifstream infile;
+	infile.open (filename.c_str());
 
-    int i = 0;
-    while (getline(infile, line) && !line.empty()) {
-        istringstream iss(line);
-        A.resize(A.size() + 1);
-        int a, j = 0;
-        while (iss >> a) {
-            A[i].push_back(a);
-            j++;
-        }
-        i++;
-    }
+	int i = 0;
+	while (getline(infile, line) && !line.empty()) {
+		istringstream iss(line);
+		A.resize(A.size() + 1);
+		int a, j = 0;
+		while (iss >> a) {
+			A[i].push_back(a);
+			j++;
+		}
+		i++;
+	}
 
-    infile.close();
-    ab.A = A;
-    return ab;
+	infile.close();
+	ab.A = A;
+	return ab;
 }
 
 vector< vector<int> > scatter(vector< vector<int> > A) {
@@ -71,6 +71,7 @@ int main(int argc, char* argv[]) {
         filename = argv[2];
     }
     Result result = read(filename);
+    
     parsec_roi_begin();
     vector< vector<int> > C = scatter(result.A);
     parsec_roi_end();
