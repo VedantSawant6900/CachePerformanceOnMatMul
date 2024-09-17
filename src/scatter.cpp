@@ -59,6 +59,7 @@ vector< vector<int> > scatter(vector< vector<int> > A)
         // Scatter the random value into the matrix
         A[row][col] = value;
     }
+    return A
 }
 
 
