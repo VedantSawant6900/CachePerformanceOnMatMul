@@ -70,7 +70,7 @@ int main(int argc, char* argv[]) {
         filename = argv[2];
     }
     Result result = read(filename);
-    
+    cout<<result.A;
     parsec_roi_begin();
     vector< vector<int> > C = scatter(result.A);
     parsec_roi_end();
