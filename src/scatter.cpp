@@ -70,9 +70,11 @@ int main(int argc, char* argv[]) {
     } else {
         filename = argv[2];
     }
-    Result result = read(filename);
+    // Result result = read(filename);
+    int size = 128;
+    vector< vector<int> > A(size, vector<int>(size, 0));
     parsec_roi_begin();
-    vector< vector<int> > C = scatter(result.A);
+    vector< vector<int> > C = scatter(A);
     parsec_roi_end();
     return 0;
 }
