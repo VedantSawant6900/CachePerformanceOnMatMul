@@ -22,7 +22,7 @@ struct Result {
 };
 
 Result read(string filename) {
-	vector< vector<int> > A, B;
+	vector< vector<int> > A;
 	Result ab;
 	string line;
 	ifstream infile;
@@ -33,7 +33,8 @@ Result read(string filename) {
 		istringstream iss(line);
 		A.resize(A.size() + 1);
 		int a, j = 0;
-		while (iss >> a) {
+		while (iss >> a) 
+        {
 			A[i].push_back(a);
 			j++;
 		}
@@ -45,25 +46,21 @@ Result read(string filename) {
 	return ab;
 }
 
-vector< vector<int> > scatter(vector< vector<int> > A) {
-    int n=A.size();
-    const int num_samples = 1000;
-    vector<int> x_indices(num_samples);
-    vector<int> y_indices(num_samples);
-    vector<float> data_samples(num_samples);
-	for (int i = 0; i < num_samples; ++i) {
-        x_indices[i] = rand() % n;
-        y_indices[i] = rand() % n; 
-        data_samples[i] = rand(); 
-    }
+vector< vector<int> > scatter(vector< vector<int> > A) 
+{
+    int n = A.size();
 
-    for (int i = 0; i < num_samples; ++i) {
-        int x = x_indices[i];
-        int y = y_indices[i];
-        A[x][y] += data_samples[i];
+    // Generate 1,000 random indices and 1,000 random values
+    for (int i = 0; i < 1000; i++) {
+        int row = rand() % n;   // Random row index
+        int col = rand() % n;   // Random column index
+        int value = rand();     // Random value
+
+        // Scatter the random value into the matrix
+        A[row][col] = value;
     }
-    return A;
 }
+
 
 void printMatrix(vector< vector<int> > matrix) {
 	vector< vector<int> >::iterator it;
