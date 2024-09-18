@@ -46,21 +46,21 @@ Result read(string filename) {
 	return ab;
 }
 
-vector<vector<int>> initializeIdentityKernel(int size) {
-    vector<vector<int>> kernel(size, vector<int>(size, 0));
+vector<vector<int> > initializeIdentityKernel(int size) {
+    vector<vector<int> > kernel(size, vector<int>(size, 0));
     for (int i = 0; i < size; ++i) {
         kernel[i][i] = 1; 
     }
     return kernel;
 }
 
-    vector<vector<int>> convolve(const vector<vector<int>>& matrix, const vector<vector<int>>& kernel) {
-{
+    vector<vector<int> > convolve(const vector<vector<int> >& matrix, const vector<vector<int> >& kernel) {
+
     int n = matrix.size();
     int k = kernel.size();
     int outputSize = (n - k) + 1;
     
-    vector<vector<int>> output(outputSize, vector<int>(outputSize, 0));
+    vector<vector<int> > output(outputSize, vector<int>(outputSize, 0));
 
     for (int i = 0; i <= n - k; i += 1) {
         for (int j = 0; j <= n - k; j += 1) {
@@ -75,7 +75,7 @@ vector<vector<int>> initializeIdentityKernel(int size) {
     }
 
     return output;
-}
+
 }
 
 
@@ -101,7 +101,7 @@ int main (int argc, char* argv[]) {
 		filename = argv[2];
 	}
 	Result result = read (filename);
-    vector<vector<int>> kernel = initializeIdentityKernel(7); //used identity matrix for 7X7
+    vector<vector<int> > kernel = initializeIdentityKernel(7); 
     parsec_roi_begin();
 	vector< vector<int> > C = convolve(result.A,kernel);
     parsec_roi_end();
