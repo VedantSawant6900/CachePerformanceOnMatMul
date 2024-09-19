@@ -101,7 +101,7 @@ int main (int argc, char* argv[]) {
 		filename = argv[2];
 	}
 	Result result = read (filename);
-    vector<vector<int> > kernel = initializeIdentityKernel(3); 
+    vector<vector<int> > kernel = initializeIdentityKernel(7); 
     parsec_roi_begin();
 	vector< vector<int> > C = convolve(result.A,kernel);
     parsec_roi_end();
